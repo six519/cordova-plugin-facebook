@@ -10,13 +10,10 @@
     <repo></repo>
     <issue></issue>
     <engines>
-        <engine name="cordova-android" version=">=4"/>
         <engine name="cordova-plugman" version=">=4.2.0"/>
     </engines>
 
     <platform name="android">
-        <preference name="android-minSdkVersion" value="15" />
-        <preference name="android-targetSdkVersion" value="23" />
         <config-file target="AndroidManifest.xml" parent="/*">
             <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
             <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
