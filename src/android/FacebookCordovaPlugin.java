@@ -23,7 +23,7 @@ public class FacebookCordovaPlugin extends CordovaPlugin {
 
     public void initialize(CordovaInterface cordova, CordovaWebView webView) {
         super.initialize(cordova, webView);
-        FacebookCordovaPlugin.ctx = cordova.getApplicationContext();
+        FacebookCordovaPlugin.ctx = cordova.getActivity().getApplicationContext();
     }
 
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
