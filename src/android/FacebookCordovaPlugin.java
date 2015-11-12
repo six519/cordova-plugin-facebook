@@ -27,4 +27,12 @@ public class FacebookCordovaPlugin extends CordovaPlugin {
         return true;
     }
 
+    public void onResume(boolean multitasking) {
+    	AppEventsLogger.activateApp(this);
+    }
+
+    public void onPause(boolean multitasking) {
+    	AppEventsLogger.deactivateApp(this);
+    }
+
 }

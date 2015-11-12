@@ -17,6 +17,7 @@
         <config-file target="AndroidManifest.xml" parent="/*">
             <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
             <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+            <uses-permission android:name="android.permission.INTERNET"/>
         </config-file>
         <framework src="src/android/fb.gradle" custom="true" type="gradleReference"/>
 
