@@ -19,6 +19,15 @@
             <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
             <uses-permission android:name="android.permission.INTERNET"/>
         </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <activity android:name="com.facebook.FacebookActivity"
+              android:configChanges=
+                     "keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+              android:theme="@android:style/Theme.Translucent.NoTitleBar"
+              android:label="@string/app_name" />
+        </config-file>
+
         <framework src="src/android/fb.gradle" custom="true" type="gradleReference"/>
 
         <source-file src="src/android/FacebookCordovaPlugin.java" target-dir="src/com/ferdinandsilva/facebook" />
