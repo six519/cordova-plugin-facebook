@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="cordova-plugin-facebook"
+        version="1.0.0">
+    <name>Facebook Cordova Plugin</name>
+    <description></description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,facebook</keywords>
+    <repo></repo>
+    <issue></issue>
+    <engines>
+        <engine name="cordova-android" version=">=4"/>
+        <engine name="cordova-plugman" version=">=4.2.0"/>
+    </engines>
+
+    <platform name="android">
+
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+            <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+        </config-file>
+
+
+        <framework src="src/android/fb.gradle" custom="true" type="gradleReference"/>
+
+    </platform>
+</plugin>
