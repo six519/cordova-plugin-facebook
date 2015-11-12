@@ -20,5 +20,6 @@
         </config-file>
         <framework src="src/android/fb.gradle" custom="true" type="gradleReference"/>
 
+        <source-file src="src/android/FacebookCordovaPlugin.java" target-dir="src/com/ferdinandsilva/facebook" />
     </platform>
 </plugin>
