@@ -15,7 +15,7 @@
     </engines>
 
     <js-module src="www/facebookcordovaplugin.js" name="FacebookCordovaPlugin">
-        <clobbers target="facebookCordovaPlugin" />
+        <merges target="facebookCordovaPlugin" />
     </js-module>
 
     <platform name="android">
