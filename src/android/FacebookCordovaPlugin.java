@@ -61,6 +61,7 @@ public class FacebookCordovaPlugin extends CordovaPlugin {
 
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
 
+        /**
         if ("login".equals(action)) {
 
             LoginManager.getInstance().logInWithReadPermissions(FacebookCordovaPlugin.thisActivity, Arrays.asList("public_profile", "user_friends"));
@@ -71,6 +72,7 @@ public class FacebookCordovaPlugin extends CordovaPlugin {
         } else {
             return false;
         }
+        **/
 
         return true;
     }
