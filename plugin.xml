@@ -25,15 +25,11 @@
             <uses-permission android:name="android.permission.INTERNET"/>
         </config-file>
 
-        <config-file target="res/xml/strings.xml" parent="/*">
-            <string name="facebook_app_id">$APP_ID</string>
-        </config-file>
-
         <config-file target="AndroidManifest.xml" parent="/manifest/application">
             <provider android:authorities="com.facebook.app.FacebookContentProvider$APP_ID"
           android:name="com.facebook.FacebookContentProvider"
           android:exported="true" />
-            <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+            <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="$APP_ID"/>
             <activity android:name="com.facebook.FacebookActivity"
               android:configChanges=
                      "keyboard|keyboardHidden|screenLayout|screenSize|orientation"
