@@ -13,6 +13,7 @@ import org.json.JSONObject;
 
 import com.facebook.appevents.AppEventsLogger;
 import com.facebook.share.widget.AppInviteDialog;
+import com.facebook.FacebookSdk;
 
 public class FacebookCordovaPlugin extends CordovaPlugin {
     public static final String TAG = "FacebookCordovaPlugin";
@@ -24,6 +25,7 @@ public class FacebookCordovaPlugin extends CordovaPlugin {
     public void initialize(CordovaInterface cordova, CordovaWebView webView) {
         super.initialize(cordova, webView);
         FacebookCordovaPlugin.ctx = cordova.getActivity().getApplicationContext();
+        FacebookSdk.sdkInitialize(FacebookCordovaPlugin.ctx);
     }
 
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {

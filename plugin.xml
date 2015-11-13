@@ -6,6 +6,7 @@
     <name>Facebook Cordova Plugin</name>
     <description></description>
     <license>Apache 2.0</license>
+    <preference name="APP_ID" />
     <keywords>cordova,facebook</keywords>
     <repo></repo>
     <issue></issue>
@@ -24,7 +25,12 @@
             <uses-permission android:name="android.permission.INTERNET"/>
         </config-file>
 
+        <config-file target="res/xml/strings.xml" parent="/*">
+            <string name="facebook_app_id">$APP_ID</string>
+        </config-file>
+
         <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
             <activity android:name="com.facebook.FacebookActivity"
               android:configChanges=
                      "keyboard|keyboardHidden|screenLayout|screenSize|orientation"
