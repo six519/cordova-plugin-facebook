@@ -1,6 +1,8 @@
 package com.ferdinandsilva.facebook;
 
 import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 import android.content.Context;
 import android.content.Intent;
@@ -64,7 +66,15 @@ public class FacebookCordovaPlugin extends CordovaPlugin {
 
         if ("login".equals(action)) {
 
-            LoginManager.getInstance().logInWithReadPermissions(FacebookCordovaPlugin.thisActivity, Arrays.asList("public_profile", "user_friends"));
+            List<String> ls = new ArrayList<String>();
+
+            for(int x=0; x < args.length(); x++) {
+                String arg = args[x].toString();
+                ls.add(arg);
+            }
+
+            //LoginManager.getInstance().logInWithReadPermissions(FacebookCordovaPlugin.thisActivity, Arrays.asList("public_profile", "user_friends"));
+            LoginManager.getInstance().logInWithReadPermissions(FacebookCordovaPlugin.thisActivity, ls);
 
             JSONObject r = new JSONObject();
             r.put("ok", "ok");
