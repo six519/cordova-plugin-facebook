@@ -114,9 +114,11 @@ public class FacebookCordovaPlugin extends CordovaPlugin {
         //super.onActivityResult(requestCode, resultCode, intent);
         FacebookCordovaPlugin.cbackmanager.onActivityResult(requestCode, resultCode, intent);
     }
+    /**
 
     public void onDestroy() {
         FacebookCordovaPlugin.aatokentracker.stopTracking();
     }
+    **/
 
 }
