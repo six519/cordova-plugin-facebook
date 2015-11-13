@@ -1,6 +1,7 @@
 package com.ferdinandsilva.facebook;
 
 import android.content.Context;
+import android.content.Intent;
 
 import org.apache.cordova.CordovaWebView;
 import org.apache.cordova.CallbackContext;
