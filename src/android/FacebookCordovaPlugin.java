@@ -49,7 +49,7 @@ public class FacebookCordovaPlugin extends CordovaPlugin {
         FacebookCordovaPlugin.aatokentracker = new AccessTokenTracker() {
             @Override
             protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken currentAccessToken) {
-                FacebookCordovaPlugin.atoken = oldAccessToken;
+                FacebookCordovaPlugin.atoken = currentAccessToken;
             }
         };
 
