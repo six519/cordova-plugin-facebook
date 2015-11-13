@@ -7,7 +7,7 @@ var facebookCordovaPlugin = {
 		exec(sc, ec, "FacebookCordovaPlugin", "login", permissions);
 	},
 	getAccessToken: function(sc, ec) {
-		exec(sc, ec, "FacebookCordovaPlugin", "access_token", []);	
+		exec(sc, ec, "FacebookCordovaPlugin", "get_access_token", []);	
 	}
 };
 
