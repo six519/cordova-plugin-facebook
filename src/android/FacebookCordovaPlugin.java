@@ -69,7 +69,7 @@ public class FacebookCordovaPlugin extends CordovaPlugin {
             List<String> ls = new ArrayList<String>();
 
             for(int x=0; x < args.length(); x++) {
-                String arg = args[x].toString();
+                String arg = args.get(x).toString();
                 ls.add(arg);
             }
 
