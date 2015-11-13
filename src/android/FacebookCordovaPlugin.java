@@ -66,4 +66,9 @@ public class FacebookCordovaPlugin extends CordovaPlugin {
     	AppEventsLogger.deactivateApp(FacebookCordovaPlugin.ctx);
     }
 
+    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        super.onActivityResult(requestCode, resultCode, intent);
+        FacebookCordovaPlugin.cbackmanager.onActivityResult(requestCode, resultCode, intent);
+    }
+
 }
