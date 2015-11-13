@@ -1,5 +1,7 @@
 package com.ferdinandsilva.facebook;
 
+import java.util.Arrays;
+
 import android.content.Context;
 import android.content.Intent;
 
@@ -55,6 +57,17 @@ public class FacebookCordovaPlugin extends CordovaPlugin {
     }
 
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
+
+        if ("login".equals(action)) {
+
+            LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile", "user_friends"));
+
+            JSONObject r = new JSONObject();
+            r.put("ok", "ok");
+            callbackContext.success(r);
+        } else {
+            return false;
+        }
 
         return true;
     }
