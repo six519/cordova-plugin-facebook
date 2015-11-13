@@ -14,10 +14,16 @@ import org.json.JSONObject;
 import com.facebook.appevents.AppEventsLogger;
 import com.facebook.share.widget.AppInviteDialog;
 import com.facebook.FacebookSdk;
+import com.facebook.CallbackManager;
+import com.facebook.login.LoginManager;
+import com.facebook.login.LoginResult;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
 
 public class FacebookCordovaPlugin extends CordovaPlugin {
     public static final String TAG = "FacebookCordovaPlugin";
     public static Context ctx;
+    public static CallbackManager cbackmanager;
 
     public FacebookCordovaPlugin() {
     }
@@ -26,6 +32,25 @@ public class FacebookCordovaPlugin extends CordovaPlugin {
         super.initialize(cordova, webView);
         FacebookCordovaPlugin.ctx = cordova.getActivity().getApplicationContext();
         FacebookSdk.sdkInitialize(FacebookCordovaPlugin.ctx);
+        FacebookCordovaPlugin.cbackmanager = CallbackManager.Factory.create();
+
+        LoginManager.getInstance().registerCallback(FacebookCordovaPlugin.cbackmanager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+
+            }
+
+            @Override
+            public void onCancel() {
+
+            }
+
+            @Override
+            public void onError(FacebookException error) {
+
+            }
+        });
+
     }
 
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
