@@ -25,12 +25,16 @@ import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
+import com.facebook.AccessTokenTracker;
+import com.facebook.AccessToken;
 
 public class FacebookCordovaPlugin extends CordovaPlugin {
     public static final String TAG = "FacebookCordovaPlugin";
     public static Context ctx;
     public static CallbackManager cbackmanager;
     public static Activity thisActivity;
+    public static AccessTokenTracker aatokentracker;
+    public static AccessToken atoken;
 
     public FacebookCordovaPlugin() {
     }
@@ -41,6 +45,13 @@ public class FacebookCordovaPlugin extends CordovaPlugin {
         FacebookCordovaPlugin.thisActivity = cordova.getActivity();
         FacebookSdk.sdkInitialize(FacebookCordovaPlugin.ctx);
         FacebookCordovaPlugin.cbackmanager = CallbackManager.Factory.create();
+
+        FacebookCordovaPlugin.aatokentracker = new AccessTokenTracker() {
+            @Override
+            protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken currentAccessToken) {
+                FacebookCordovaPlugin.atoken = oldAccessToken;
+            }
+        };
 
         LoginManager.getInstance().registerCallback(FacebookCordovaPlugin.cbackmanager, new FacebookCallback<LoginResult>() {
             @Override
@@ -58,6 +69,8 @@ public class FacebookCordovaPlugin extends CordovaPlugin {
 
             }
         });
+
+        FacebookCordovaPlugin.atoken = AccessToken.getCurrentAccessToken();
 
     }
 
@@ -79,6 +92,9 @@ public class FacebookCordovaPlugin extends CordovaPlugin {
             JSONObject r = new JSONObject();
             r.put("ok", "ok");
             callbackContext.success(r);
+        } else if ("get_access_token".equals(action)){
+            JSONObject r = new JSONObject();
+            r.put("access_token", FacebookCordovaPlugin.atoken.getToken());
         } else {
             return false;
         }
@@ -97,6 +113,10 @@ public class FacebookCordovaPlugin extends CordovaPlugin {
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
         //super.onActivityResult(requestCode, resultCode, intent);
         FacebookCordovaPlugin.cbackmanager.onActivityResult(requestCode, resultCode, intent);
+    }
+
+    public void onDestroy() {
+        FacebookCordovaPlugin.aatokentracker.stopTracking();
     }
 
 }
