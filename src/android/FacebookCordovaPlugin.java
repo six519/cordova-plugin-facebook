@@ -76,6 +76,7 @@ public class FacebookCordovaPlugin extends CordovaPlugin {
 
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
 
+        JSONObject r = new JSONObject();
 
         if ("login".equals(action)) {
 
@@ -89,14 +90,18 @@ public class FacebookCordovaPlugin extends CordovaPlugin {
             //LoginManager.getInstance().logInWithReadPermissions(FacebookCordovaPlugin.thisActivity, Arrays.asList("public_profile", "user_friends"));
             LoginManager.getInstance().logInWithReadPermissions(FacebookCordovaPlugin.thisActivity, ls);
 
-            JSONObject r = new JSONObject();
+            
             r.put("ok", "ok");
             callbackContext.success(r);
         } else if ("get_access_token".equals(action)){
             
-            JSONObject r = new JSONObject();
+            r.put("ok","ok");
             r.put("access_token", FacebookCordovaPlugin.atoken.getToken());
-            
+            callbackContext.success(r);
+        } else if("logout".equals(action)) {
+            LoginManager.getInstance().logOut();
+            r.put("ok","ok");
+            callbackContext.success(r);
         } else {
             return false;
         }
