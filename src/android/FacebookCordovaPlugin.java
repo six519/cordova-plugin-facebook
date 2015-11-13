@@ -46,12 +46,14 @@ public class FacebookCordovaPlugin extends CordovaPlugin {
         FacebookSdk.sdkInitialize(FacebookCordovaPlugin.ctx);
         FacebookCordovaPlugin.cbackmanager = CallbackManager.Factory.create();
 
+        /**
         FacebookCordovaPlugin.aatokentracker = new AccessTokenTracker() {
             @Override
             protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken currentAccessToken) {
                 FacebookCordovaPlugin.atoken = oldAccessToken;
             }
         };
+        **/
 
         LoginManager.getInstance().registerCallback(FacebookCordovaPlugin.cbackmanager, new FacebookCallback<LoginResult>() {
             @Override
@@ -70,7 +72,7 @@ public class FacebookCordovaPlugin extends CordovaPlugin {
             }
         });
 
-        FacebookCordovaPlugin.atoken = AccessToken.getCurrentAccessToken();
+        //FacebookCordovaPlugin.atoken = AccessToken.getCurrentAccessToken();
 
     }
 
@@ -93,8 +95,11 @@ public class FacebookCordovaPlugin extends CordovaPlugin {
             r.put("ok", "ok");
             callbackContext.success(r);
         } else if ("get_access_token".equals(action)){
+            /**
             JSONObject r = new JSONObject();
             r.put("access_token", FacebookCordovaPlugin.atoken.getToken());
+            **/
+            r.put("access_token", "");
         } else {
             return false;
         }
