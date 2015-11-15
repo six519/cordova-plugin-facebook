@@ -98,7 +98,14 @@ public class FacebookCordovaPlugin extends CordovaPlugin {
         } else if ("get_access_token".equals(action)){
             
             r.put("ok","ok");
-            r.put("access_token", FacebookCordovaPlugin.atoken.getToken());
+
+            try {
+                r.put("access_token", FacebookCordovaPlugin.atoken.getToken());
+            }
+            catch(Exception e) {
+                r.put("access_token", "");
+            }
+            
             callbackContext.success(r);
         } else if("logout".equals(action)) {
             LoginManager.getInstance().logOut();
