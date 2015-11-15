@@ -6,18 +6,15 @@ Installation
 
 Usage
 =====
+::
 
-    Login
-    -----
-
-    ::
-
-        window.facebookCordovaPlugin.login(["public_profile", "user_friends"], function(e){
-            //sucess callback
-        }, function(e){
-            //error callback
-            alert('The error is: ' + e);
-        });
+    //logging in
+    window.facebookCordovaPlugin.login(["public_profile", "user_friends"], function(e){
+        //sucess callback
+    }, function(e){
+        //error callback
+        alert('The error is: ' + e);
+    });
 
 Warning
 =======
