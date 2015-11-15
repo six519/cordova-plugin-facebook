@@ -3,8 +3,8 @@
 var exec = require("cordova/exec");
 
 var facebookCordovaPlugin = {
-	login: function(sc, ec, permissions) {
-		exec(sc, ec, "FacebookCordovaPlugin", "login", permissions);
+	login: function(scopes, sc, ec) {
+		exec(sc, ec, "FacebookCordovaPlugin", "login", scopes);
 	},
 	getAccessToken: function(sc, ec) {
 		exec(sc, ec, "FacebookCordovaPlugin", "get_access_token", []);	
