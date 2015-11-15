@@ -16,6 +16,13 @@ Usage
         alert('The error is: ' + e);
     });
 
+    //logging out
+    window.facebookCordovaPlugin.logout(function(e){
+        //success callback
+    }, function(e){
+        //error callback
+    });
+
 Warning
 =======
 
