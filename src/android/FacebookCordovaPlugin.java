@@ -53,6 +53,8 @@ public class FacebookCordovaPlugin extends CordovaPlugin {
             }
         };
 
+        FacebookCordovaPlugin.aatokentracker.startTracking();
+
         LoginManager.getInstance().registerCallback(FacebookCordovaPlugin.cbackmanager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
@@ -106,7 +108,7 @@ public class FacebookCordovaPlugin extends CordovaPlugin {
             return false;
         }
 
-        return true;
+        return true;    
     }
 
     public void onResume(boolean multitasking) {
