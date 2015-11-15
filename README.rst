@@ -26,4 +26,4 @@ Usage
 Warning
 =======
 
-Still under development
+Still under development and works only in android
