@@ -24,7 +24,7 @@
         <preference name="android-targetSdkVersion" value="23" />
         -->
 
-        <config-file target="res/xml/config.xml" parent="/*">
+        <config-file target="config.xml" parent="/*">
             <feature name="FacebookCordovaPlugin" >
                 <param name="android-package" value="com.ferdinandsilva.facebook.FacebookCordovaPlugin"/>
             </feature>
